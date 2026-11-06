@@ -333,6 +333,15 @@ function findOldest(people) {
 //     -> ["Tom"]
 // ---------------------------------------------------------------------
 function namesAtLeastAge(people, minAge) {
+   let names = [];
+
+    for (let i = 0; i < people.length; i++) {
+        if (people[i].age >= minAge) {
+            names.push(people[i].name);
+        }
+    }
+
+    return names;
 }
 
 
@@ -344,6 +353,21 @@ function namesAtLeastAge(people, minAge) {
 //   cartTotal([{ item: "Pen", price: 2, quantity: 10 }]) -> 18
 // ---------------------------------------------------------------------
 function cartTotal(cart) {
+
+    let total = 0;
+
+    for (let i = 0; i < cart.length; i++) {
+
+        let price = cart[i].price * cart[i].quantity;
+
+        if (cart[i].quantity >= 10) {
+            price = price * 0.9;
+        }
+
+        total = total + price;
+    }
+
+    return total;
 }
 
 
