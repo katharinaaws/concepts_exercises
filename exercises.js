@@ -138,6 +138,19 @@ function fizzBuzz(n) {
 //   isPalindrome("level") -> true
 // ---------------------------------------------------------------------
 function isPalindrome(word) {
+    let left = 0;
+    let right = word.length - 1;
+
+    while (left < right) {
+        if (word[left] !== word[right]) {
+            return false;
+        }
+
+        left++;
+        right--;
+    }
+
+    return true;
 }
 
 
@@ -151,6 +164,19 @@ function isPalindrome(word) {
 //             ***
 // ---------------------------------------------------------------------
 function buildTriangle(height) {
+    let result = "";
+
+    for (let i = 1; i <= height; i++) {
+        for (let j = 1; j <= i; j++) {
+            result += "*";
+        }
+
+        if (i < height) {
+            result += "\n";
+        }
+    }
+
+    return result;
 }
 
 
@@ -161,6 +187,17 @@ function buildTriangle(height) {
 //   countWeekendDays([1, 6, 7, 3]) -> 2
 // ---------------------------------------------------------------------
 function countWeekendDays(dayNumbers) {
+    let count = 0;
+
+    for (let i = 0; i < dayNumbers.length; i++) {
+        let day = dayName(dayNumbers[i]);
+
+        if (day === "Saturday" || day === "Sunday") {
+            count++;
+        }
+    }
+
+    return count;
 }
 
 
