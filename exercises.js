@@ -208,6 +208,21 @@ function countWeekendDays(dayNumbers) {
 //   pointsToGrade(85) -> 2
 // ---------------------------------------------------------------------
 function pointsToGrade(points) {
+ if (points >= 90) {
+        return 1;
+
+    } else if (points >= 80) {
+        return 2;
+
+    } else if (points >= 65) {
+        return 3;
+
+    } else if (points >= 50) {
+        return 4;
+
+    } else {
+        return 5;
+    }
 }
 
 
@@ -220,6 +235,32 @@ function pointsToGrade(points) {
 //       5 Insufficient
 // ---------------------------------------------------------------------
 function gradeReport(student) {
+let grade = pointsToGrade(student.points);
+    let word = "";
+
+    switch (grade) {
+        case 1:
+            word = "Excellent";
+            break;
+
+        case 2:
+            word = "Good";
+            break;
+
+        case 3:
+            word = "Satisfactory";
+            break;
+
+        case 4:
+            word = "Sufficient";
+            break;
+
+        case 5:
+            word = "Insufficient";
+            break;
+    }
+
+    return student.name + ": " + grade + " (" + word + ")";
 }
 
 
@@ -232,8 +273,33 @@ function gradeReport(student) {
 //   rockPaperScissors("rock", "paper") -> "Player 2 wins"
 // ---------------------------------------------------------------------
 function rockPaperScissors(choice1, choice2) {
-}
 
+    if (choice1 !== "rock" && choice1 !== "paper" && choice1 !== "scissors") {
+        return "Invalid input";
+    }
+
+    if (choice2 !== "rock" && choice2 !== "paper" && choice2 !== "scissors") {
+        return "Invalid input";
+    }
+
+    if (choice1 === choice2) {
+        return "Draw";
+    }
+
+    if (choice1 === "rock" && choice2 === "scissors") {
+        return "Player 1 wins";
+    }
+
+    if (choice1 === "paper" && choice2 === "rock") {
+        return "Player 1 wins";
+    }
+
+    if (choice1 === "scissors" && choice2 === "paper") {
+        return "Player 1 wins";
+    }
+
+    return "Player 2 wins";
+}
 
 // ---------------------------------------------------------------------
 // Exercise 11: findOldest
