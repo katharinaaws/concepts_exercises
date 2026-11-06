@@ -378,9 +378,25 @@ function cartTotal(cart) {
 //   isPrime(7) -> true,  isPrime(9) -> false
 // ---------------------------------------------------------------------
 function isPrime(n) {
+
+    if (n < 2) {
+        return false;
+    }
+
+    let i = 2;
+
+    while (i < n) {
+        if (n % i === 0) {
+            return false;
+        }
+
+        i++;
+    }
+
+    return true;
 }
 
-
+ 
 // ---------------------------------------------------------------------
 // Exercise 15: primesUpTo
 // Return an array with all prime numbers from 2 up to n (inclusive).
@@ -388,6 +404,17 @@ function isPrime(n) {
 //   primesUpTo(10) -> [2, 3, 5, 7]
 // ---------------------------------------------------------------------
 function primesUpTo(n) {
+
+    let primes = [];
+
+    for (let i = 2; i <= n; i++) {
+
+        if (isPrime(i)) {
+            primes.push(i);
+        }
+    }
+
+    return primes;
 }
 
 
@@ -402,6 +429,26 @@ function primesUpTo(n) {
 //     -> { wordCount: 4, longestWord: "quick" }
 // ---------------------------------------------------------------------
 function wordStatistics(sentence) {
+
+    let words = sentence.trim().split(/\s+/);
+    let longestWord = "";
+    let wordCount = 0;
+
+    for (let i = 0; i < words.length; i++) {
+
+        if (words[i] !== "") {
+            wordCount++;
+
+            if (words[i].length > longestWord.length) {
+                longestWord = words[i];
+            }
+        }
+    }
+
+    return {
+        wordCount: wordCount,
+        longestWord: longestWord
+    };
 }
 
 
